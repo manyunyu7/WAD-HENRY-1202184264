@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Home</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <style>
+    body {
+      font-family: Quicksand, Arial, Helvetica, sans-serif;
+    }
+    .nav-item:hover {
+      background-color: rgb(40, 162, 243);
+    }
+
+    .row {
+      display: flex;
+
+    }
+
+    .kiri {
+      padding: 150px 80px;
+      background-color: #ebecee;
+    }
+
+    .kanan {
+      padding: 50px 80px;
+      background-color: #ffffff;
+    }
+
+    .col-md-6 {
+      margin: 20px;
+    }
+
+    .main {
+      background-color: #f8f9fb;
+      padding: 20px 120px;
+    }
+    iframe{
+      width: 100%;
+      height: 350px ;
+    }
+
+    @media (max-width: 575.98px) {
+      .main {
+        padding: 20px 20px;
+      }
+      .kiri {
+      padding: 10px 30px;
+      background-color: #ebecee;
+    }
+    }
+  </style>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#"> <img width="100px" height="24px" src="./assets/logo-ead.png" alt=""></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="./home.html">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./profile.html">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./product.html">Product</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="main">
+    <div class="row content">
+
+      <div class="col-sm-6 kiri">
+        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/AwMeQJ_u73I" frameborder="0"
+          allowfullscreen></iframe>
+      </div>
+
+      <div class="col-sm-6 kanan px-2">
+        <div class="p-5">
+          <h3 class="text-center">Registrasi Data Pelanggan</h3><br><br>
+          <form>
+            <div class="form-group row">
+              <label for="inputNama" class="col-sm-3 col-form-label">Nama</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="inputNama" placeholder="Nama Anda" name="name" value=""
+                  required>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="inputTelp" class="col-sm-3 col-form-label">Nomor HP</label>
+              <div class="col-sm-9">
+                <input type="password" class="form-control" id="inputTelp" value="" name="telp">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="inputTelp" class="col-sm-3 col-form-label">Alamat</label>
+              <div class="col-sm-9">
+                <textarea class="form-control" name="alamat" id="inputAlamat" rows="3"></textarea>
+              </div>
+            </div>
+            <div class="form-group row">
+              <legend class="col-form-label col-sm-3 pt-0">Pembayaran</legend>
+              <div class="col-sm-9 row">
+                <label class="radio-inline col-4">
+                  <input type="radio" name="cash" id="cash" value="cash" checked> Cash
+                </label>
+                <label class="radio-inline col-4">
+                  <input type="radio" name="credit" id="credit" value="credit"> Credit
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label" for="sel1">Kategori Pesanan :</label>
+              <div class="col-sm-9">
+                <select class="form-control" id="category">
+                  <option id="k1" value="Komputer" name="komputer">Komputer</option>
+                  <option id="k2" value="Keyboard" name="keyboard">Keyboard</option>
+                  <option id="k3" value="Mouse" name="mouse">Mouse</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <button type="submit" name="submit" id="btn-submit" class="btn btn-primary btn-block">Kirim</button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
+</body>
+
+</html>
