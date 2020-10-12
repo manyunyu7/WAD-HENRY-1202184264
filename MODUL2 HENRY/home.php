@@ -68,7 +68,7 @@
             </table>
           </div>
           <div class="card-footer d-flex justify-content-center">
-            <a href="booking.php?room=<?php echo 'Standard&img=r-1' ?>"><button type="button" class="btn btn-primary">Book Now</button></a>
+            <a href="booking.php?room=<?php echo 'Standar&img=r-1' ?>"><button type="button" class="btn btn-primary">Book Now</button></a>
           </div>
         </div>
 

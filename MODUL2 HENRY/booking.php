@@ -44,7 +44,7 @@
                         <div class="form-group">
                             <label for="inputNama" class="col-sm-3 col-form-label">Name</label>
                             <div class="col-sm-12">
-                                <input type="text" class="form-control" id="inputNama" placeholder="Nama Anda" name="name" value="" required>
+                                <input type="text" class="form-control" id="inputNama" placeholder="Nama Anda" name="nama" value="" required>
                             </div>
                         </div>
                         <div class="form-group">
@@ -114,7 +114,7 @@
                         <div class="form-group">
                             <label class="col-sm-12 col-form-label">Phone Number :</label>
                             <div class="col-sm-12">
-                                <input type="text" class="form-control" id="inputPhone" placeholder="Nomor Telpon" name="inputPhone" required>
+                                <input type="text" class="form-control" id="inputPhone" placeholder="Nomor Telpon" name="inputphone" required>
                             </div>
                         </div>
 
@@ -135,7 +135,7 @@
                         if (empty($_GET['img'])) {
                             echo '<img class="img-fluid roomPreview prev" src="./assets/img/r-1.jpg" alt="Pr">';
                         } else {
-                            echo '<img class="img-fluid roomPreview prev" src="./assets/img/' . $_GET['img'] . '.jpg" alt="">';
+                            echo '<img class="img-fluid roomPreview prev" src="./assets/img/' . $_GET['ima'] . '.jpg" alt="">';
                         }
                         ?>
                     </div>
