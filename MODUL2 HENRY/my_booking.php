@@ -83,7 +83,7 @@
 
                         echo '
                     <td><strong>'  . rand() . '</strong></td>
-                    <td>' . $_GET['name'] . '</td>
+                    <td>' . $roomType . '</td>
                     <td>' . $dateBook . '</td>
                     <td>' . $dateCheckOut . '</td>
                     <td>' . $roomType . '</td>
