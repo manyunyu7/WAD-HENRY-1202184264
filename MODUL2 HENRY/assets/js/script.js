@@ -29,3 +29,4 @@ function change_image() {
     }
     $('.roomPreview').attr("src", url);
 }
+
