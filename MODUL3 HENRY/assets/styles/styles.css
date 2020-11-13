@@ -1,0 +1,22 @@
+html {
+    overflow: auto;
+  }
+
+  html,
+  body {
+    height: 100%;
+    font-family: 'Quicksand';
+  }
+
+  body {
+    border: 7px solid blue;
+    border-width: 0px 5px 5px 5px;
+    overflow: scroll;
+    overflow-x: hidden;
+    display: block;
+
+    margin: 0;
+    /* Space from this element (entire page) and others*/
+    padding: 0;
+    /*space from content and border*/
+  }
