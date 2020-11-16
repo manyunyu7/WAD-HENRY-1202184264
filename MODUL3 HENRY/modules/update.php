@@ -1,6 +1,6 @@
 <?php
 $nowDate = time();
-if (isset($POST['updateEvent'])) {
+if (isset($_POST['updateEvent'])) {
   $name = $_POST['name'];
   $desc = $_POST['desc'];
   $type = $_POST['cat'];
@@ -15,13 +15,14 @@ if (isset($POST['updateEvent'])) {
 
 
   $query = "";
-
-  if (isset($fileIMG)) {
+  if (($_FILES['inputImg']['size']!=0)) {
     $fileIMG = $_FILES['inputImg'];
     $fileIMGName = $_FILES['inputImg']['name'];
     $fileIMGType = $_FILES['inputImg']['type'];
     $fileIMGSize = $_FILES['inputImg']['size'];
     $fileIMGTempLoc = $_FILES['inputImg']['tmp_name'];
+    $filePathLocal = "./assets/img/$nowDate-$name" . ".png";
+
     $query = "UPDATE `event_table` SET 
     `name`='$name',
     `deskripsi`='$desc',
@@ -35,7 +36,7 @@ if (isset($POST['updateEvent'])) {
     `benefit`='$benefit' WHERE id=$id";
     $filePathLocal = "./assets/img/$nowDate-$name" . ".png";
     $saveLocal =  move_uploaded_file($fileIMGTempLoc, $filePathLocal);
-  }else{
+  } else {
     //IF THE PATH IS NOT CHANGE
     $query = "UPDATE `event_table` SET 
     `name`='$name',
@@ -48,11 +49,6 @@ if (isset($POST['updateEvent'])) {
     `harga`=$price,
     `benefit`='$benefit' WHERE id = $id";
   }
-
-
-  
-
-
 
   $sql = mysqli_query($conn, $query);
   if ($sql) {
@@ -69,7 +65,7 @@ if (isset($POST['updateEvent'])) {
         <strong>Gagal Mengupdate Event! Karena ' . $mysqli_error($conn) . '</strong>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
-        </button>
+        </buttson>
       </div>';
   }
 

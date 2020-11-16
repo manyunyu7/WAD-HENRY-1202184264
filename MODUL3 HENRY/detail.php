@@ -199,10 +199,8 @@
                                                             </div>
                                                         </div>
 
-
-
                                                         <div class="my-2">
-                                                            <label for=""><strong>Kategori</strong></label>
+                                          
                                                             <div class="">
                                                                 <label class="col-md-6 form-check">
                                                                     <div class="row">
@@ -223,8 +221,6 @@
                                                                 </label>
                                                             </div>
                                                         </div>
-
-
                                                     </div>
                                                 </div>
                                             </div>

@@ -29,7 +29,7 @@ if (isset($_POST['submit'])) {
     VALUES ('$name','$desc','$filePathLocal',
     '$type','$date','$start','$end','$loc',$price,'$benefit')";
 
-  $sql = mysqli_query($conn, $qeury);
+  $sql = mysqli_query($conn, $query);
   if ($sql) {
     echo '<br>';
     echo '<div class="alert alert-success alert-dismissible fade show" role="alert">

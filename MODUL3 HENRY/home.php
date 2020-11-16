@@ -70,7 +70,7 @@
     include './modules/connect.php';
     include './modules/create.php';
 
-    $query = "SELECT * FROM event_tabel";
+    $query = "SELECT * FROM event_table";
     $sql = mysqli_query($conn, $query);
 
     ?>
