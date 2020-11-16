@@ -1,6 +1,6 @@
 <?php
 $nowDate = time();
-if (isset($_POST['updateEvent'])) {
+if (isset($POST['updateEvent'])) {
   $name = $_POST['name'];
   $desc = $_POST['desc'];
   $type = $_POST['cat'];

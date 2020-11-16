@@ -2,7 +2,7 @@
 $nowDate = time();
 if (isset($_POST['submit'])) {
   $name = $_POST['name'];
-  $desc = $_POST['desc'];
+  $decs = $_POST['desc'];
   $type = $_POST['cat'];
   $desc = $_POST['desc'];
   $start = $_POST['start'];
@@ -29,7 +29,7 @@ if (isset($_POST['submit'])) {
     VALUES ('$name','$desc','$filePathLocal',
     '$type','$date','$start','$end','$loc',$price,'$benefit')";
 
-  $sql = mysqli_query($conn, $query);
+  $sql = mysqli_query($conn, $qeury);
   if ($sql) {
     echo '<br>';
     echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
