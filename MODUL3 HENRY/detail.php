@@ -93,6 +93,11 @@
         include './modules/delete.php';
         include './modules/update.php';
 
+        ini_set('display_errors', '1');
+        ini_set('display_startup_errors', '1');
+        error_reporting(E_ALL);
+        ini_set('error_reporting', E_ALL);
+
         $event_id = $_GET['event_id'];
         $query = "SELECT * FROM event_table where id=$event_id;";
         $sql = mysqli_query($conn, $query);
@@ -200,7 +205,7 @@
                                                         </div>
 
                                                         <div class="my-2">
-                                          
+
                                                             <div class="">
                                                                 <label class="col-md-6 form-check">
                                                                     <div class="row">
