@@ -3,7 +3,7 @@
 <?php session_start();
 include 'libs.php';
 $db = new database();
-if (isset($_SESSION['login'])) {
+if (isset($_SESSION['logged'])) {
     # code...
 }else{
       $db->movePage("login.php");

@@ -53,7 +53,7 @@
         $db = new database();
         session_start();
 
-        if (isset($_POST['login'])) {
+        if (isset($_POST['lojin'])) {
             $email = $_POST['email'];
             $password = $_POST['password'];
             if (isset($_POST['remember-me'])) {

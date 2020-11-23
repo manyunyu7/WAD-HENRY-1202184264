@@ -5,7 +5,7 @@ class database
 	var $host = "localhost";
 	var $username = "root";
 	var $password = "";
-	var $database = "06-henry";
+	var $database = "wad_modul4";
 	var $connect = "";
 	var $time = "";
 
@@ -49,8 +49,8 @@ class database
 		$uid = $_SESSION['user-id'];
 		$colorCookieKey = "color-" . $uid;
 		$colorNav = "";
-		if (isset($_COOKIES[$colorCookieKey])) {
-			$colorNav = $_COOKIES[$colorCookieKey];
+		if (isset($_COOKIE[$colorCookieKey])) {
+			$colorNav = $_COOKIE[$colorCookieKey];
 		} else {
 			$colorNav = "navbar-light bg-light";
 		}
@@ -124,7 +124,7 @@ class database
 			$_SESSION['logged'] = 1;
 			$_SESSION['user-id'] =  $row['id'];
 			$_SESSION['user-name'] =  $row['nama'];
-			$_SESSION['user-email'] =  $row['email'];
+			$_SESSION['user-email'] =  $row['email']; 
 			$this->user_id = $row['id'];
 			if ($rememberMe) {
 				setcookie('saved', 1, time() + (10 * 365 * 24 * 60 * 60), '/');
