@@ -7,9 +7,18 @@
     <title>Data Produk</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    
+    <style>
+        .container{
+            margin-bottom: 120px;
+        }
+    </style>
 </head>
-<body style="background: lightgray">
+<body>
+@include('layouts.v_nav_bar')
 
+<br><br>
+    <h1 style="text-align: center;">List Product</h1>
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-12">

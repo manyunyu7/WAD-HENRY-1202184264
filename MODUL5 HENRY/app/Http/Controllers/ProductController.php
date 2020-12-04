@@ -19,6 +19,8 @@ class ProductController extends Controller
         return view('product.index', compact('product'));
     }
 
+
+    
     /**
      * create
      *
@@ -29,14 +31,22 @@ class ProductController extends Controller
         return view('product.create');
     }
 
+    public function showForProduct($id){
+        $data = array(
+            'pageid' => "post",
+            'post' => Product::find($id)
+        );
+        return  ($data);
+    }
 
-    // protected $fillable = [
-    //     'name', 'price', 'description','stock','img_path'
-    // ];
 
-
-
-
+    public function show($id){
+        $data = array(
+            'pageid' => "post",
+            'post' => Product::find($id)
+        );
+        return   view('order.order_process')->with ($data);
+    }
 
     /**
      * store

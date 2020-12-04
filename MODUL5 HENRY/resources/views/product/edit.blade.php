@@ -9,8 +9,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 
-<body style="background: lightgray">
-
+<body>
+@include('layouts.v_nav_bar')
+<br><br>
+    <h1 style="text-align: center;">Update Product</h1>
     <div class="container mt-5 mb-5">
         <div class="row">
             <div class="col-md-12">

@@ -7,10 +7,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Tambah Data Produk</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+
 </head>
 
-<body style="background: lightgray">
+<body>
+@include('layouts.v_nav_bar')
 
+<br><br>
+    <h1 style="text-align: center;">Create Product</h1>
     <div class="container mt-5 mb-5">
         <div class="row">
             <div class="col-md-12">
@@ -19,10 +24,6 @@
                         <form action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data">
 
                             @csrf
-
-
-
-
                             <div class="form-group">
                                 <label>Product Name</label>
                                 <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ old('title') }}" placeholder="Enter Product Title">

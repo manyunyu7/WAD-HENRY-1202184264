@@ -7,9 +7,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
+    protected $table = 'products';
     public $timestamps = false;
     use HasFactory;
-     protected $fillable = [
-        'name', 'price', 'description','stock','img_path'
+    protected $fillable = [
+        'name', 'price', 'description', 'stock', 'img_path'
     ];
+    
+
+    public function order()
+    {
+        return $this->hasMany('App\Models\Order');
+    }
+
+  
+
+
 }
