@@ -44,6 +44,21 @@ class database
 		}
 	}
 
+	function show_data_admin()
+	{
+		$id = $_SESSION['user-id'];
+		$data = mysqli_query($this->connect, "select * from cart where id<>0");
+
+		if (mysqli_num_rows($data) == 0) {
+			$hasil = null;
+		} else if (mysqli_num_rows($data) > 0) {
+			while ($row = mysqli_fetch_array($data)) {
+				$hasil[] = $row;
+			}
+			return $hasil;
+		}
+	}
+
 	function getColor()
 	{
 		$uid = $_SESSION['user-id'];
@@ -56,6 +71,8 @@ class database
 		}
 		return $colorNav;
 	}
+
+	
 
 	function update_profile($name, $email, $contact, $password, $repassword, $color)
 	{
@@ -90,6 +107,18 @@ class database
 		}
 	}
 
+	
+	// DELETE CART ITEM
+	function change_status($item_id,$status)
+	{
+		$data = mysqli_query($this->connect, "UPDATE `cart` SET `status`='$status' WHERE id=$item_id");
+		if ($data) {
+			$this->msgSuccess("Berhasil Mengupdate Status , <a href='admin_landing.php'>Refresh Halaman</a>");
+		} else {
+			$this->msgFailed("Gagal Mengupdate Data" . mysqli_error($this->connect));
+		}
+	}
+
 
 	// DELETE CART ITEM
 	function delete_data($item_id)
@@ -105,8 +134,9 @@ class database
 	function addToCart($item_name, $item_price)
 	{
 		$id = $_SESSION['user-id'];
-		$data = mysqli_query($this->connect, "INSERT INTO cart (user_id,nama_barang,harga) 
-		VALUES ($id,'$item_name','$item_price')");
+		$name = $_SESSION['user-name'];
+		$data = mysqli_query($this->connect, "INSERT INTO cart (user_id,nama_barang,harga,status,current_user_name) 
+		VALUES ($id,'$item_name','$item_price','Dalam Antrian Masak',  '$name'  )       ");
 		if ($data) {
 			$this->msgSuccess("Berhasil Ditambahkan");
 		} else {
@@ -121,6 +151,7 @@ class database
 		$data = mysqli_query($this->connect, "SELECT * FROM USER WHERE email='$email' AND password='$password'");
 		if (mysqli_num_rows($data) != 0) {
 			$row = mysqli_fetch_array($data);
+		
 			$_SESSION['logged'] = 1;
 			$_SESSION['user-id'] =  $row['id'];
 			$_SESSION['user-name'] =  $row['nama'];
@@ -135,7 +166,13 @@ class database
 			}
 
 			$this->msgSuccess("Login Berhasil");
-			$this->movePage("index.php?in_");
+			$role = $row['role'];
+			if($role=='admin'){
+				$this->movePage("admin_landing.php");
+			}else{
+				$this->movePage("index.php?in_");
+			}
+		
 		} else {
 
 			$_SESSION['logged'] = 0;

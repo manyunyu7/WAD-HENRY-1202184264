@@ -117,13 +117,6 @@ class ProductController extends Controller
     }
 
 
-    /**
-     * update
-     *
-     * @param  mixed $request
-     * @param  mixed $blog
-     * @return void
-     */
     public function update(Request $request, Product $product)
     {
         $this->validate($request, [

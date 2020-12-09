@@ -5,10 +5,11 @@ include 'libs.php';
 $db = new database();
 if (isset($_SESSION['logged'])) {
     # code...
-}else{
-      $db->movePage("login.php");
+} else {
+    $db->movePage("login.php");
 }
 ?>
+
 <head>
     <title>Cart</title>
     <!-- Required meta tags -->
@@ -16,6 +17,9 @@ if (isset($_SESSION['logged'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <style>
+        body{
+            font-family: Nunito;
+        }
         .content {
             margin-top: 60px;
             margin-bottom: 60px;
@@ -29,7 +33,7 @@ if (isset($_SESSION['logged'])) {
 
 <body>
     <nav class="navbar navbar-expand-lg <?= $db->getColor() ?>">
-        <a class="navbar-brand" href="index.php">Restoran</a>
+        <a class="navbar-brand" href="admin_landing.php">Restoran</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -38,13 +42,13 @@ if (isset($_SESSION['logged'])) {
             <ul class="navbar-nav mr-auto"></ul>
             <div class="navbar-nav">
                 <li class="nav nav-item">
-                    <a class="" href="cart.php">
+                    <a class="" href="admin_landing.php">
                         <i class="fa fa-cart-arrow-down fa-lg" aria-hidden="true"></i> </a>
                     &nbsp; &nbsp; &nbsp; &nbsp;
                     </a>
                 </li>
                 <li class="nav-item">
-                    <p class="" href="#">Selamat Datang &nbsp;&nbsp; </a>
+                    <p class="" href="#">Hallo Koki, &nbsp;&nbsp; </a>
                 </li>
                 <li class=" nav nav-item dropdown ">
                     <a class=" dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -66,27 +70,53 @@ if (isset($_SESSION['logged'])) {
     <div class="container">
         <?php
         $show_data = true;
-        if ($db->show_data() != null) {
+        if ($db->show_data_admin() != null) {
             $show_data = true;
-            $data = $db->show_data();
+            $data = $db->show_data_admin();
         } else {
             $show_data = false;
         }
         if (isset($_POST['delete_item'])) {
             $db->delete_data($_POST['item_id']);
         }
+
+        if (isset($_POST['status_antri'])) {
+            $db->change_status($_POST['item_id'], "Dalam Antrian Masak");
+        }
+        if (isset($_POST['status_masak'])) {
+            $db->change_status($_POST['item_id'], "Sedang Dimasak");
+        }
+        if (isset($_POST['status_antar'])) {
+            $db->change_status($_POST['item_id'], "Selesai");
+        }
+        if (isset($_POST['status_cancel'])) {
+            $db->change_status($_POST['item_id'], "Dibatalkan");
+        }
+
+
+
         ?>
+
+    </div>
+
+    <div class="container">
+        <div style="width: 100%; text-align:center; padding:50px" class="">
+            <h1>Menu Koki</h1>
+            <h4>Update Status Pesanan berdasarkan status pesanan pelanggan</h4>
+        </div>
     </div>
 
     <div class="container content">
-        <table class="table table-striped">
+        <table class="table table-striped table-responsive">
             <thead>
                 <tr>
                     <th>No</th>
-                    <th>Nama Barang</th>
+                    <th>Pesanan</th>
                     <th>Harga</th>
+                    <th>Nama</th>
+                    <th>Waktu Masuk</th>
                     <th>Status</th>
-                    <th>Aksi</th>
+                    <th colspan="4">Ubah Status</th>
                 </tr>
             </thead>
             <tbody>
@@ -100,33 +130,54 @@ if (isset($_SESSION['logged'])) {
                             <td><?= $no ?></td>
                             <td><?= $key['nama_barang'] ?></td>
                             <td>Rp.<?= number_format($key['harga']) ?></td>
+                            <td><?= ($key['current_user_name']) ?></td>
+                            <td><?= ($key['created_at']) ?></td>
                             <td><?= $key['status']  ?></td>
                             <td>
                                 <form action="" method="post">
                                     <input type="hidden" name="item_id" value="<?= $key['id'] ?>">
-                                    <button type="submit" name="delete_item" class="btn btn-danger">
-                                        Hapus
+                                    <input type="hidden" name="new_status" value="Dalam Antrian">
+                                    <button type="submit" name="status_antri" class="btn btn-danger">
+                                        Dalam Antrian
+                                    </button>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="" method="post">
+                                    <input type="hidden" name="item_id" value="<?= $key['id'] ?>">
+                                    <input type="hidden" name="new_status" value="Dalam Antrian">
+                                    <button type="submit" name="status_masak" class="btn btn-primary">
+                                        Sedang Dimasak
+                                    </button>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="" method="post">
+                                    <input type="hidden" name="item_id" value="<?= $key['id'] ?>">
+                                    <input type="hidden" name="new_status" value="Dalam Antrian">
+                                    <button type="submit" name="status_antar" class="btn btn-success">
+                                        Sedang Diantarkan
+                                    </button>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="" method="post">
+                                    <input type="hidden" name="item_id" value="<?= $key['id'] ?>">
+                                    <input type="hidden" name="new_status" value="Dibatalkan">
+                                    <button type="submit" name="status_cancel" class="btn btn-dark">
+                                        Pesanan Dibatalkan
                                     </button>
                                 </form>
                             </td>
                         </tr>
                     <?php
                         $no++;
-                        if ($key['status']=="Dibatalkan") {
-                        
-                        }else{
-                            $total += $key['harga'];
-                        }
-                        
+                        $total += $key['harga'];
                     endforeach;
                 else : ?>
-                    <td colspan="4">Tidak Ada Data</td>
+                    <td colspan="5">Tidak Ada Data</td>
                 <?php
                 endif; ?>
-                <tr>
-                    <td colspan="3"> <strong>Total</strong> </td>
-                    <td colspan="3"> <strong>Rp<?= number_format($total) ?></strong> </td>
-                </tr>
             </tbody>
         </table>
     </div>

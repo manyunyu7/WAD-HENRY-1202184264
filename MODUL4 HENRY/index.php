@@ -23,10 +23,8 @@ if (isset($_SESSION['logged'])) {
     <style>
         .header {
             font-family: 'Comfortaa', Arial, Helvetica, sans-serif;
-            color: white;
+            color: black;
             height: 170px;
-            background: rgb(238, 174, 202);
-            background: linear-gradient(90deg, rgba(238, 174, 202, 1) 0%, rgba(77, 160, 231, 1) 100%);
         }
 
         .p-0 {
@@ -41,7 +39,6 @@ if (isset($_SESSION['logged'])) {
             margin-bottom: 50px;
             overflow: hidden;
             border-radius: 50px 50px 0px 0px;
-            box-shadow: 0 0 25px #0275d8;
             transition: all ease 1s;
         }
 
@@ -62,7 +59,7 @@ if (isset($_SESSION['logged'])) {
 
 
     <nav class="navbar navbar-expand-lg <?= $db->getColor() ?>">
-        <a class="navbar-brand" href="#">WAD Beauty</a>
+        <a class="navbar-brand" href="index.php">Restoran</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -113,27 +110,27 @@ if (isset($_SESSION['logged'])) {
             <div class="row">
                 <div class="col-sm-12 header">
                     <div style="width: 100%; text-align:center; padding:50px" class="">
-                        <h1>WAD Beauty</h1>
-                        <h4>Tersedia Skincare dengan harga murah dan berkualitas</h4>
+                        <h1>Resto Family 4</h1>
+                        <h4>Tersedia 3 Paket Makanan harga murah dan berkualitas</h4>
                     </div>
                 </div>
 
                 <!-- //PRODUCT 1 -->
                 <div class="col-sm-4 p-0">
                     <div class="card text-left" style="height: 100%;">
-                        <img class="card-img-top" src="https://ecs7.tokopedia.net/img/cache/700/VqbcmM/2020/8/7/41e997ac-69ec-4c5d-b515-8a327f848248.jpg" alt="">
+                        <img class="card-img-top" src="https://ecs7.tokopedia.net/img/cache/700/product-1/2017/11/15/24558433/24558433_340ba4be-0809-4515-9281-2bca7be8c968_1200_1200.jpg" alt="">
                         <div class="card-body">
-                            <h4 class="card-title">La Crème Lumière</h4>
+                            <h4 class="card-title">Paket Murah Meriah</h4>
                             <p class="card-text">
-                                <p>An exquisite face cream that helps improve the essential qualities of beautiful skin: firmness, radiance and hydration</p>
+                                <p>Lalapan, Sambel , Kangkung , Tahu dan Tempe dan Sayur Asem Untuk Porsi 4 Orang</p>
                             </p>
                             <hr>
-                            <p>Rp. 1.290.000</p>
+                            <p>Rp. 30.000</p>
                         </div>
                         <div class="card-footer bg-transparent w-100">
                             <form action="" method="post">
-                                <input type="hidden" name="item_name" value="La Crème Lumière">
-                                <input type="hidden" name="item_price" value="1290000">
+                                <input type="hidden" name="item_name" value="Paket Murah Meriah">
+                                <input type="hidden" name="item_price" value="30000">
                                 <button type="submit" name="add-product" class="btn btn-primary btn-block">Tambahkan Ke Keranjang</button>
                             </form>
                         </div>
@@ -143,19 +140,19 @@ if (isset($_SESSION['logged'])) {
                 <!-- PRODUCT 2 -->
                 <div class="col-sm-4 p-0">
                     <div class="card text-left">
-                        <img class="card-img-top" src="https://webimg.secondhandapp.com/1.1/56e1eb7e097f4b4168cac89a" alt="">
+                        <img class="card-img-top" src="https://cdn-2.tstatic.net/pontianak/foto/bank/images/bakul-desa_20171108_143451.jpg" alt="">
                         <div class="card-body">
-                            <h4 class="card-title">Caviar Liquid Lift</h4>
+                            <h4 class="card-title">Paket Serbu</h4>
                             <p class="card-text">
-                                <p>Facial serums, in all of their endlessly niche iterations, are their own special breed of product. There is a serum and a star ingredient for every skincare concern under the sun. But what if you just want one serum that covers all of your bases? It has to be lightweight enough to be layered underneath moisturizer, but potent enough to plump and firm to promote a more youthful-looking appearance. Well, I’m elated to report that I’ve found such a rarified gem in the ultra-luxurious, newly reimagined La Prairie Skin Caviar Liquid Lift.</p>
+                                <p>Paket Nasi Liwet , Ayam Goreng atau Bakar , Tahu , Tempe , Lalapan , Sayur Asem , dan Es Teh Manis Seger.</p>
                             </p>
                             <hr>
-                            <p>Rp. 2.290.000</p>
+                            <p>Rp. 120.000</p>
                         </div>
                         <div class="card-footer bg-transparent w-100">
                             <form action="" method="post">
-                                <input type="hidden" name="item_name" value="Caviar Liquid Lift">
-                                <input type="hidden" name="item_price" value="2290000">
+                                <input type="hidden" name="item_name" value="Paket Serbu">
+                                <input type="hidden" name="item_price" value="120000">
                                 <button type="submit" name="add-product" class="btn btn-primary btn-block">Tambahkan Ke Keranjang</button>
                             </form>
                         </div>
@@ -165,19 +162,19 @@ if (isset($_SESSION['logged'])) {
                 <!-- PRODUCT 3 -->
                 <div class="col-sm-4 p-0">
                     <div class="card text-left" style="height: 100%;">
-                        <img class="card-img-top" src="https://vertigomag.co.uk/wp-content/uploads/2018/07/la-prairie-skin-caviar-luxe-cream.jpg" alt="">
+                        <img class="card-img-top" src="https://warungdulukala.com/wp-content/uploads/2018/09/TUMPENG-KUNING.jpg" alt="">
                         <div class="card-body">
-                            <h4 class="card-title">Caviar Luxe Cream</h4>
+                            <h4 class="card-title">Paket Tumpeng</h4>
                             <p class="card-text">
-                                <p>The remastered Skin Caviar Luxe Cream is a true feast for the senses. It offers an exquisite experience, from the moment the cobalt blue jar is unveiled from its silver box, to the discovery of the modern</p>
+                                <p>Nasi Tumpeng Komplet seperti di gambar, hingga 15 Porsi</p>
                             </p>
                             <hr>
-                            <p>Rp. 2.400.000</p>
+                            <p>Rp. 200.000</p>
                         </div>
                         <div class="card-footer bg-transparent w-100">
                             <form action="" method="post">
-                                <input type="hidden" name="item_name" value="Caviar Luxe Cream">
-                                <input type="hidden" name="item_price" value="2400000">
+                                <input type="hidden" name="item_name" value="Paket Tumpeng">
+                                <input type="hidden" name="item_price" value="200000">
                                 <button type="submit" name="add-product" class="btn btn-primary btn-block">Tambahkan Ke Keranjang</button>
                             </form>
                         </div>

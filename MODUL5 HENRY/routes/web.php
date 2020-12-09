@@ -13,13 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', function () {
-    return view('layouts.v_footer');
+    return view('layouts');
 });
 
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 Route::get('order', function () {
     return view('order.order_landing');
 });
@@ -28,7 +25,6 @@ Route::get('user/{id}', function ($id) {
     return 'User '.$id;
 });
 
-// Route::get('order/process/{product_id}', ['uses' =>'OrderController@getSpesificProduct']);
 
 Route::get('order', ['uses' =>'OrderController@index']);
 

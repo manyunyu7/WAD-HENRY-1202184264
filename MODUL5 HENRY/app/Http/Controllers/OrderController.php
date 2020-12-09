@@ -22,7 +22,7 @@ class OrderController extends Controller
     }
 
 
-    public function histori()
+    public function history()
     {
 
         // $order = Order::latest()->paginate(10);
