@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use DB;
+use Database;
 use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -22,7 +22,7 @@ class OrderController extends Controller
     }
 
 
-    public function history()
+    public function histori()
     {
 
         // $order = Order::latest()->paginate(10);
